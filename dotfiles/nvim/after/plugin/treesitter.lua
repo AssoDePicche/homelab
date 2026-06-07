@@ -3,6 +3,7 @@ return {
     require('nvim-treesitter.configs').setup({
       ensure_installed = {
         'help',
+        'vim',
         'vimdoc',
         'javascript',
         'typescript',
@@ -11,7 +12,10 @@ return {
         'lua',
         'rust',
         'jsdoc',
-        'bash'
+        'bash',
+        'python',
+        'query',
+        'sql',
       },
       sync_install = false,
       auto_install = true,

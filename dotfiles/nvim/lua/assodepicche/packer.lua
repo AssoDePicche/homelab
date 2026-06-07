@@ -14,4 +14,43 @@ return require('packer').startup(function(use)
     end
   })
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
+  use({
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  })
+  use 'neovim/nvim-lspconfig'
+  use {
+    'folke/lazydev.nvim',
+    config = function()
+      require('lazydev').setup({
+        library = {
+          {
+            path = '${3rd}/luv/library', words = { 'vim%.uv' }
+          },
+        }
+      })
+    end
+  }
+  use {
+    'saghen/blink.cmp',
+    branch = 'v1',
+    run = 'cargo build --release',
+    config = function()
+      require('blink.cmp').setup({
+        keymap = { preset = 'default' },
+        sources = {
+          default = { 'lsp', 'path', 'snippets', 'buffer' },
+        },
+      })
+    end
+  }
+  use {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup()
+    end
+  }
+  use 'mfussenegger/nvim-jdtls'
 end)
