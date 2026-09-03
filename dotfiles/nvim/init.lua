@@ -1,4 +1,5 @@
 require('assodepicche')
+require('assodepicche.packer')
 
 vim.lsp.config('luals', {
     cmd = { 'lua-language-server' },
