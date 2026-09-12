@@ -7,6 +7,9 @@ if vim.lsp.config.clangd then
             '--background-index',
             '--clang-tidy',
             '--header-insertion=never'
+        },
+        init_options = {
+            fallbackFlags = { '-std=c++23', '-Wall', '-Wextra', '-Werror' }
         }
     })
 end
